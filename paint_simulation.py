@@ -27,9 +27,6 @@ def run_simulation(board_colors, n, m, num_cores):
     st.text(f"Simulação iniciada com resolução: {n}x{n}")
     board = PainterBoard(n, board_colors)
     board.create_board(objects)
-    st.write(f"Tamanho real de board_colors: {len(board_colors)} x {len(board_colors[0])}")
-    st.write(f"Tamanho real de board: {board.n} x {board.n}")
-
     # 3. Controle e interpolação
     n_joints = robot.q.shape[0]
     robot_ctrl = RobotController(robot, n_joints, a=0.25, wtol=0.01)
@@ -78,3 +75,5 @@ def run_simulation(board_colors, n, m, num_cores):
     # 5. Executa simulação
     sim = ub.Simulation(objects, background_color="#FFFFFF", pixel_ratio=1.0, width=1920, height=720)
     sim.run()
+    html_path = "/tmp/"
+    sim.save(address=html_path, file_name='simulacao.html')
