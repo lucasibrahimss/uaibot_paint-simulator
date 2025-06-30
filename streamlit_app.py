@@ -6,6 +6,7 @@ from image_processing import ImageProcessor
 from paint_simulation import run_simulation
 from streamlit_utils import html_injection
 import base64
+os.system("pip install --upgrade --no-cache-dir git+https://github.com/rodrigo-arenas/uaibot.git")
 
 def link_para_download_html(path_arquivo, nome_link="🔗 Abrir Simulação Interativa"):
     with open(path_arquivo, "rb") as f:
