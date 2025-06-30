@@ -46,7 +46,7 @@ def main():
         if st.button("Iniciar simulação"):
             with st.spinner("Executando..."):
                 run_simulation(board_colors, n, n, num_cores)
-                link_para_download_html("sim_134803320552.html")
+                link_para_download_html("/tmp/simulacao.html")
 
 if __name__ == "__main__":
     main()
