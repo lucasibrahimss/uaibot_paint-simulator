@@ -52,5 +52,5 @@ class PainterBoard:
                 self.matrix.append(pixel)
                 dt_ += 0.0001
         
-        st.write(f"Tamanho real da matrix: {len(self.matrix)} x {len(self.matrix[0])}")
+        st.write(f"Tamanho real da matrix: {len(self.matrix)} x {len(self.matrix)}")
         objects.extend(self.matrix)
