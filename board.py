@@ -29,6 +29,7 @@ class PainterBoard:
 
     def create_board(self, objects):
         dt_ = 0
+        print(f"Criando Quadro com {self.n}x{self.n} pixels")
         for j in range(self.n):
             for i in range(self.n):
                 # Em cada pixel, chamamos trn(...) usando os floats .x, .y, .z
