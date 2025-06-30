@@ -74,8 +74,3 @@ def run_simulation(board_colors, n, m, num_cores):
     # 5. Executa simulação
     sim = ub.Simulation(objects, background_color="#FFFFFF", pixel_ratio=1.0, width=1920, height=720)
     sim.run()
-    if st.button("Iniciar simulação"):
-    with st.spinner("Executando..."):
-        run_simulation(board_colors, n, n, num_cores)
-        link_para_download_html("sim_134803320552.html")
-    
