@@ -1,4 +1,7 @@
 import streamlit as st
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
 from image_processing import ImageProcessor
 from simulation import run_simulation
 from streamlit_utils import html_injection
