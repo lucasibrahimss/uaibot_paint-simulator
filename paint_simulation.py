@@ -77,29 +77,37 @@ def run_simulation(board_colors, n, m, num_cores):
     sim.run()
 
     import streamlit.components.v1 as components
+    def exibir_simulacao_interativa(path_html: str):
+        with open(path_html, "r", encoding="utf-8") as f:
+            html_content = f.read()
 
-    # Mostrar no Streamlit
-    with open("sim_134803320552.html", "r") as f:
-        html_content = f.read()
-        # Canvas com interação total
-    html_content = html_content.replace(
-    "<canvas id='scene_",
-    "<canvas id='scene_' tabindex='0' style='outline:none;' "
-)
+        # Corrigir canvas: permitir foco + estilo visível
+        html_content = html_content.replace(
+            "<canvas id='scene_",
+            "<canvas id='scene_' tabindex='0' style='outline:none; display:block; margin:auto;' "
+        )
 
-# Forçar foco para ativar interações
-    html_content = html_content.replace(
-    "//controls.target.set(0, 0, 0);",
-    "canvas.focus();"
-)
+        # Forçar foco no canvas para ativar zoom/scroll
+        html_content = html_content.replace(
+            "//controls.target.set(0, 0, 0);",
+            "canvas.focus();"
+        )
 
-# Redefinir tamanho do renderizador para não bugar
-    html_content = html_content.replace(
-    "renderer.setSize(canvas.clientWidth, canvas.clientHeight);",
-    "renderer.setSize(960, 540);"
-)
+        # Corrigir tamanho do renderer
+        html_content = html_content.replace(
+            "renderer.setSize(canvas.clientWidth, canvas.clientHeight);",
+            "renderer.setSize(960, 540);"
+        )
 
-    components.html(html_content, height=580, scrolling=False)
-    
-    
-        
+        # Envolver em container responsivo
+        html_content = f"""
+        <div style="text-align:center;">
+            {html_content}
+        </div>
+        """
+
+        components.html(html_content, height=580, scrolling=False)
+
+        # Mostrar no Streamlit
+
+    exibir_simulacao_interativa("sim_134803320552.html") 
