@@ -80,6 +80,7 @@ def run_simulation(board_colors, n, m, num_cores):
     sim.save(address='.', file_name='sim_result.html')
 
     # Mostrar no Streamlit
-    with open("sim_134803320552", "r") as f:
+    with open("sim_134803320552.html", "r") as f:
         html_content = f.read()
         st_html(html_content, height=600, scrolling=True)
+        
