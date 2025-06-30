@@ -86,7 +86,10 @@ def run_simulation(board_colors, n, m, num_cores):
         sim.run()
         sim.save(address=output_dir, file_name="simulacao.html")
         st.success("✅ Simulação salva com sucesso!")
-        return html_path
+        html_content = sim.html_str
+        return html_content
     except Exception as e:
         st.error(f"❌ Erro ao salvar simulação: {e}")
         return None
+    
+    
