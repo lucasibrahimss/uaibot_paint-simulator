@@ -8,11 +8,10 @@ from streamlit_utils import html_injection
 import base64
 
 def link_para_download_html(path_arquivo, nome_link="🔗 Abrir Simulação Interativa"):
-    with open(path_arquivo, "r", encoding="utf-8") as f:
-        conteudo = f.read()
-    b64 = base64.b64encode(conteudo.encode()).decode()
-    href = f'<a href="data:text/html;base64,{b64}" target="_blank">{nome_link}</a>'
-    st.markdown(href, unsafe_allow_html=True)
+    with open(path_arquivo, "rb") as f:
+        b64 = base64.b64encode(f.read()).decode()
+        href = f'<a href="data:text/html;base64,{b64}" download="simulacao.html">{nome_link}</a>'
+        st.markdown(href, unsafe_allow_html=True)
 
 
 
