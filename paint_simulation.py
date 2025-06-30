@@ -75,5 +75,4 @@ def run_simulation(board_colors, n, m, num_cores):
     # 5. Executa simulação
     sim = ub.Simulation(objects, background_color="#FFFFFF", pixel_ratio=1.0, width=1920, height=720)
     sim.run()
-    html_path = "/tmp/"
-    sim.save(address=html_path, file_name='simulacao.html')
+    sim.save(address="/tmp/", file_name='simulacao.html')

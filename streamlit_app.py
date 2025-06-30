@@ -15,7 +15,6 @@ def link_para_download_html(path_arquivo, nome_link="🔗 Abrir Simulação Inte
     st.markdown(href, unsafe_allow_html=True)
 
 
-
 def main():
     st.markdown(html_injection, unsafe_allow_html=True)
     st.set_page_config(
