@@ -77,7 +77,7 @@ def run_simulation(board_colors, n, m, num_cores):
     sim.run()
 
     from streamlit.components.v1 import html as st_html
-    robot.simulation.save("sim_result.html")
+    sim.save(address='.', file_name='sim_result.html')
 
     # Mostrar no Streamlit
     with open("sim_result.html", "r") as f:
