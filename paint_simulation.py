@@ -103,7 +103,7 @@ def run_simulation(board_colors, n, m, num_cores):
             "renderer.setSize(canvas.clientWidth, canvas.clientHeight);",
             "renderer.setSize(window.innerWidth, window.innerHeight);"
         )
-    components.html(html_content, height=800, scrolling=True)
+    st_html.html(html_content, height=800, scrolling=True)
     
     
         
