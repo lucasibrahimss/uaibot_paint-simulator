@@ -4,7 +4,7 @@ from board import PainterBoard
 from robot_controller import RobotController
 from interpolators import MinimumJerkInterpolator
 import streamlit as st
-
+import os
 
 def run_simulation(board_colors, n, m, num_cores):
     # 1. Configurações iniciais
@@ -74,5 +74,19 @@ def run_simulation(board_colors, n, m, num_cores):
 
     # 5. Executa simulação
     sim = ub.Simulation(objects, background_color="#FFFFFF", pixel_ratio=1.0, width=1920, height=720)
-    sim.run()
-    sim.save(address="/tmp/", file_name='simulacao.html')
+    
+    # Garante que o diretório temporário existe
+    output_dir = "/tmp"
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Caminho completo do arquivo
+    html_path = os.path.join(output_dir, "simulacao.html")
+
+    try:
+        sim.run()
+        sim.save(address=output_dir, file_name="simulacao.html")
+        st.success("✅ Simulação salva com sucesso!")
+        return html_path
+    except Exception as e:
+        st.error(f"❌ Erro ao salvar simulação: {e}")
+        return None
