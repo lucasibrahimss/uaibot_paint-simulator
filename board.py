@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import numpy as np
 import uaibot as ub
+import streamlit as st
 
 
 @dataclass
@@ -29,7 +30,7 @@ class PainterBoard:
 
     def create_board(self, objects):
         dt_ = 0
-        print(f"Criando Quadro com {self.n}x{self.n} pixels")
+        st.text(f"Criando Quadro com {self.n}x{self.n} pixels")
         for j in range(self.n):
             for i in range(self.n):
                 # Em cada pixel, chamamos trn(...) usando os floats .x, .y, .z

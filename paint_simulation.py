@@ -3,6 +3,7 @@ import numpy as np
 from board import PainterBoard
 from robot_controller import RobotController
 from interpolators import MinimumJerkInterpolator
+import streamlit as st
 
 
 def run_simulation(board_colors, n, m, num_cores):
@@ -23,7 +24,7 @@ def run_simulation(board_colors, n, m, num_cores):
     objects.append(frame)
 
     # 2. Tabuleiro
-    print(f"Simulação iniciada com resolução: {n}x{n}")
+    st.text(f"Simulação iniciada com resolução: {n}x{n}")
     board = PainterBoard(n, board_colors)
     board.create_board(objects)
 

@@ -4,7 +4,6 @@ import os
 sys.path.append(os.path.dirname(__file__))
 from image_processing import ImageProcessor
 from paint_simulation import run_simulation
-from streamlit_utils import html_injection
 import base64
 
 def link_para_download_html(path_arquivo, nome_link="🔗 Abrir Simulação Interativa"):
