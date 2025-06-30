@@ -1,8 +1,8 @@
 import uaibot as ub
 import numpy as np
-from src.board import PainterBoard
-from src.robot_controller import RobotController
-from src.interpolators import MinimumJerkInterpolator
+from .board import PainterBoard
+from .robot_controller import RobotController
+from .interpolators import MinimumJerkInterpolator
 
 
 
