@@ -77,37 +77,33 @@ def run_simulation(board_colors, n, m, num_cores):
     sim.run()
 
     from streamlit.components.v1 import html as st_html
-    sim.save(address='.', file_name='sim_result.html')
-
     # Mostrar no Streamlit
     with open("sim_134803320552.html", "r") as f:
         html_content = f.read()
-        html_content = html_content.replace(
         # Canvas com interação total
-        html_content = html_content.replace(
+    html_content = html_content.replace(
             "<canvas id='scene_",
             "<canvas id='scene_' tabindex='0' style='width:100%; height:100%; outline:none; touch-action:manipulation; pointer-events:all;' "
         )
 
         # Container acessível
-        html_content = html_content.replace(
+    html_content = html_content.replace(
             "<div id='canvas_container_",
             "<div tabindex='0' aria-label='robot simulation canvas' role='application' id='canvas_container_"
         )
 
         # Forçar foco do canvas
-        html_content = html_content.replace(
+    html_content = html_content.replace(
             "//controls.target.set(0, 0, 0);",
             "canvas.focus();"
         )
 
         # Melhor responsividade
-        html_content = html_content.replace(
+    html_content = html_content.replace(
             "renderer.setSize(canvas.clientWidth, canvas.clientHeight);",
             "renderer.setSize(window.innerWidth, window.innerHeight);"
         )
-
-        components.html(html_content, height=800, scrolling=True)
+    components.html(html_content, height=800, scrolling=True)
     
     
         
