@@ -76,7 +76,8 @@ def run_simulation(board_colors, n, m, num_cores):
     sim = ub.Simulation(objects, background_color="#FFFFFF", pixel_ratio=1.0, width=1920, height=720)
     sim.run()
 
-    from streamlit.components.v1 import html as st_html
+    import streamlit.components.v1 as components
+
     # Mostrar no Streamlit
     with open("sim_134803320552.html", "r") as f:
         html_content = f.read()
@@ -103,7 +104,7 @@ def run_simulation(board_colors, n, m, num_cores):
             "renderer.setSize(canvas.clientWidth, canvas.clientHeight);",
             "renderer.setSize(window.innerWidth, window.innerHeight);"
         )
-    st_html.html(html_content, height=800, scrolling=True)
+    components.html(html_content, height=800, scrolling=True)
     
     
         
