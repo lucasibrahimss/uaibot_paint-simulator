@@ -28,7 +28,7 @@ def run_simulation(board_colors, n, m, num_cores):
     board = PainterBoard(n, board_colors)
     board.create_board(objects)
     st.write(f"Tamanho real de board_colors: {len(board_colors)} x {len(board_colors[0])}")
-    st.write(f"Tamanho real de board: {len(board.n)} x {len(board.n)}")
+    st.write(f"Tamanho real de board: {board.n} x {board.n}")
 
     # 3. Controle e interpolação
     n_joints = robot.q.shape[0]
