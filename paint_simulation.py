@@ -5,7 +5,6 @@ from robot_controller import RobotController
 from interpolators import MinimumJerkInterpolator
 
 
-
 def run_simulation(board_colors, n, m, num_cores):
     # 1. Configurações iniciais
     objects = []
@@ -75,39 +74,8 @@ def run_simulation(board_colors, n, m, num_cores):
     # 5. Executa simulação
     sim = ub.Simulation(objects, background_color="#FFFFFF", pixel_ratio=1.0, width=1920, height=720)
     sim.run()
-
-    import streamlit.components.v1 as components
-    def exibir_simulacao_interativa(path_html: str):
-        with open(path_html, "r", encoding="utf-8") as f:
-            html_content = f.read()
-
-        # Corrigir canvas: permitir foco + estilo visível
-        html_content = html_content.replace(
-            "<canvas id='scene_",
-            "<canvas id='scene_' tabindex='0' style='outline:none; display:block; margin:auto;' "
-        )
-
-        # Forçar foco no canvas para ativar zoom/scroll
-        html_content = html_content.replace(
-            "//controls.target.set(0, 0, 0);",
-            "canvas.focus();"
-        )
-
-        # Corrigir tamanho do renderer
-        html_content = html_content.replace(
-            "renderer.setSize(canvas.clientWidth, canvas.clientHeight);",
-            "renderer.setSize(960, 540);"
-        )
-
-        # Envolver em container responsivo
-        html_content = f"""
-        <div style="text-align:center;">
-            {html_content}
-        </div>
-        """
-
-        components.html(html_content, height=580, scrolling=False)
-
-        # Mostrar no Streamlit
-
-    exibir_simulacao_interativa("sim_134803320552.html") 
+    if st.button("Iniciar simulação"):
+    with st.spinner("Executando..."):
+        run_simulation(board_colors, n, n, num_cores)
+        link_para_download_html("sim_134803320552.html")
+    
