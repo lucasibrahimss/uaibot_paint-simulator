@@ -75,3 +75,11 @@ def run_simulation(board_colors, n, m, num_cores):
     # 5. Executa simulação
     sim = ub.Simulation(objects, background_color="#FFFFFF", pixel_ratio=1.0, width=1920, height=720)
     sim.run()
+
+    from streamlit.components.v1 import html as st_html
+    robot.simulation.save("sim_result.html")
+
+    # Mostrar no Streamlit
+    with open("sim_result.html", "r") as f:
+        html_content = f.read()
+        st_html(html_content, height=600, scrolling=True)
