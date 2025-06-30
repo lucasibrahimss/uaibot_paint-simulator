@@ -1,7 +1,7 @@
 import streamlit as st
-from .image_processing import ImageProcessor
-from .simulation import run_simulation
-from .streamlit_utils import html_injection
+from image_processing import ImageProcessor
+from simulation import run_simulation
+from streamlit_utils import html_injection
 
 
 def main():
