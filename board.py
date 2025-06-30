@@ -51,6 +51,6 @@ class PainterBoard:
                 pixel.add_ani_frame(time=dt_, htm=htm_pixel)
                 self.matrix.append(pixel)
                 dt_ += 0.0001
+        
         st.write(f"Tamanho real da matrix: {len(self.matrix)} x {len(self.matrix[0])}")
-
         objects.extend(self.matrix)
