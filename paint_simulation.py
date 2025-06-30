@@ -84,7 +84,7 @@ def run_simulation(board_colors, n, m, num_cores):
         html_content = f.read()
         html_content = html_content.replace(
         "<canvas id='scene_",
-        "<canvas tabindex='0' style='width:100%; height:100%; outline:none;' id='scene_"
+        "<canvas tabindex='0' style='width:100%; height:100%; outline:none;' id='scene_")
         st_html(html_content, height=600, scrolling=True)
     
     
