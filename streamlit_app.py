@@ -44,11 +44,13 @@ def main():
 
         if st.button("Iniciar simulação"):
             with st.spinner("Executando..."):
-                html_path = run_simulation(board_colors, n, n, num_cores)
-                if html_path and os.path.exists(html_path):
-                    link_para_download_html(html_path)
-                else:
+                run_simulation(board_colors, n, n, num_cores)
+                output_path = "/tmp/simulacao.html"
+                if not os.path.exists(output_path):
                     st.error("Erro: arquivo de simulação não foi criado.")
+                else:
+                    link_para_download_html(output_path)
+
 
 if __name__ == "__main__":
     main()
